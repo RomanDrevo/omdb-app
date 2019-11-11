@@ -42,19 +42,28 @@ class App extends Component {
               {/*  Do something*/}
               {/*</Button>*/}
               <div className="search-item-wrapper">
-                <Search
-                  value={searchText}
-                  placeholder="input search text"
-                  onSearch={value => console.log(value)}
-                />
+                {
+                  searchText.length > 0 &&
+                  <Search
+                    value={searchText}
+                    placeholder="input search text"
+                    onChange={this.handleOnSearch}
+                    autoFocus
+                  />
+                }
+
               </div>
             </div>
           </header>
           <div className="main-page-content">
-            <Search
-              placeholder="input search text"
-              onChange={this.handleOnSearch}
-            />
+            {
+              searchText.length === 0 &&
+              <Search
+                placeholder="input search text"
+                onChange={this.handleOnSearch}
+              />
+            }
+
           </div>
         </PageLayout>
       </div>
