@@ -36,10 +36,15 @@ export const deleteItem = data =>{
 };
 
 export const updateSearch = data => {
-  console.log(data);
   return {
     type: actionsTypes.UPDATE_SEARCH,
     payload: data
+  };
+};
+
+export const clearSearch = () => {
+  return {
+    type: actionsTypes.CLEAR_SEARCH,
   };
 };
 

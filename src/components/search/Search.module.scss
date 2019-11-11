@@ -1,0 +1,29 @@
+.search-bar-wrapper :global{
+  border: 1px dashed blue;
+  display: flex;
+  position: relative;
+
+  .clear-search{
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    background: gainsboro;
+    color: #000;
+    opacity: .9;
+    padding: 6px 12px;
+    position: absolute;
+    right: 0;
+    -webkit-box-shadow: -1px 1px 9px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 1px 9px -5px rgba(0,0,0,0.75);
+    box-shadow: -1px 1px 9px -5px rgba(0,0,0,0.75);
+  }
+
+  .clear-search:hover{
+    opacity: 1;
+  }
+  .clear-search:active{
+    background: gray;
+  }
+}

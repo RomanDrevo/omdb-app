@@ -14,6 +14,12 @@ const headerReducer = createReducer(initialState, {
     });
   },
 
+  [actionsTypes.CLEAR_SEARCH]: state => {
+    return Object.assign({}, state, {
+      searchText: ""
+    });
+  },
+
   [actionsTypes.SET_ITEMS]: (state, {payload}) => {
     return {
       ...state,
