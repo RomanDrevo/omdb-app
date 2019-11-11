@@ -4,7 +4,7 @@ import {getSearchText} from "../../store/selectors";
 import {clearSearch, fetchMovies, updateSearch} from "../../store/actions/moviesActions";
 import debounce from "lodash.debounce";
 import {Input} from "antd";
-import style from "./Search.module.scss"
+import style from "./Search.module.scss";
 
 const { Search } = Input;
 

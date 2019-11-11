@@ -9,7 +9,7 @@ import {
   getLoadingStatus,
   getMovies,
   getSearchText,
-  getSelectedMovieDetails, getShowFullDescriptionStatus,
+  getSelectedMovieDetails,
   getShowMovieDetailsStatus
 } from "./store/selectors";
 import SearchBar from "./components/search/SearchBar";
@@ -39,7 +39,14 @@ class App extends Component {
   };
 
   render() {
-    const { isLoading, error, movies, showMovieDetailsStatus, selectedMovieDetails, showFullDescription, showFullDescriptionStatus} = this.props;
+    const {
+      isLoading,
+      error,
+      movies,
+      showMovieDetailsStatus,
+      selectedMovieDetails,
+      showFullDescriptionStatus
+    } = this.props;
 
     return (
       <div className={style["App"]}>
@@ -81,7 +88,7 @@ class App extends Component {
           >
             {
               isLoading ? <Spinner/>
-              :
+                :
                 (
                   selectedMovieDetails &&
                   <div className="full-movie-details">
@@ -95,9 +102,19 @@ class App extends Component {
 
                     {
                       !showFullDescriptionStatus ?
-                        <Button className="show-description-btn" onClick={this.handleShowFullDescription}>Show full description</Button>
+                        <Button
+                          className="show-description-btn"
+                          onClick={this.handleShowFullDescription}
+                        >
+                          Show full description
+                        </Button>
                         :
-                        <Button className="show-description-btn" onClick={this.handleHideFullDescription}>Hide full description</Button>
+                        <Button
+                          className="show-description-btn"
+                          onClick={this.handleHideFullDescription}
+                        >
+                          Hide full description
+                        </Button>
                     }
                   </div>
                 )
@@ -118,7 +135,6 @@ const mapStateToProps = state => {
     isLoading: getLoadingStatus(state),
     showMovieDetailsStatus: getShowMovieDetailsStatus(state),
     selectedMovieDetails: getSelectedMovieDetails(state),
-    showFullDescriptionStatus: getShowFullDescriptionStatus(state),
   };
 };
 
@@ -130,7 +146,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(App);
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
 

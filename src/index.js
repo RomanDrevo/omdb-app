@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
 import App from './App';
-import {Provider} from 'react-redux'
+import {Provider} from 'react-redux';
 import {BrowserRouter} from "react-router-dom";
 import createSagaMiddleware from 'redux-saga';
 import {applyMiddleware, compose, createStore} from "redux";
@@ -22,7 +22,7 @@ sagaMiddleware.run(watchSaga);
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-        <App/>
+      <App/>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root'));

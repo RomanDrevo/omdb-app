@@ -1,5 +1,5 @@
 import {takeEvery} from "redux-saga/effects";
-import types from '../actionsTypes'
+import types from '../actionsTypes';
 import {fetchMoviesSaga, fetchMovieDetailsSaga} from "../saga/sagas";
 
 export function* watchSaga() {

@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import style from './MovieDetails.module.scss'
+import React, {Component} from 'react';
+import style from './MovieDetails.module.scss';
 import MovieImg from "./MovieImg";
 import {getLoadingStatus} from "../../store/selectors";
 import {fetchMovieDetails, showMovieDetails} from "../../store/actions/moviesActions";
@@ -15,32 +15,32 @@ class MovieDetails extends Component {
     showMovieDetails(true);
 
     fetchMovieDetails(movieId);
-  }
+  };
 
-    render() {
-      const {movie, isLoading} = this.props
+  render() {
+    const {movie, isLoading} = this.props;
 
-      if(isLoading || !movie) {
-        return <div><Spinner/></div>
-      }
-
-      return (
-            <div onClick={() => this.handleOnClick(movie.Title)} className={`${style["movie-details"]}`}>
-              <div className="movie-img-wrapper">
-                <MovieImg movie={movie}/>
-              </div>
-
-                <div className="movie-description">
-                  <div className="movie-name">Name: {movie.Title}</div>
-                  <div className="movie-details">
-                    <h5 className="mr2">Year: <b>{movie.Year}</b></h5>
-                  </div>
-
-                </div>
-
-            </div>
-        )
+    if(isLoading || !movie) {
+      return <div><Spinner/></div>;
     }
+
+    return (
+      <div onClick={() => this.handleOnClick(movie.Title)} className={`${style["movie-details"]}`}>
+        <div className="movie-img-wrapper">
+          <MovieImg movie={movie}/>
+        </div>
+
+        <div className="movie-description">
+          <div className="movie-name">Name: {movie.Title}</div>
+          <div className="movie-details">
+            <h5 className="mr2">Year: <b>{movie.Year}</b></h5>
+          </div>
+
+        </div>
+
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {

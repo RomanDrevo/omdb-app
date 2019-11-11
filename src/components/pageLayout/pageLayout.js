@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "./pageLayout.module.scss"
+import style from "./pageLayout.module.scss";
 
 function PageLayout({ children }) {
   return (

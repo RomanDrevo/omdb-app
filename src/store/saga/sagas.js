@@ -12,7 +12,7 @@ export function* fetchMoviesSaga(action) {
       const result = yield call(fetchMoviesListApi, action.payload);
 
       if(result.data.Error){
-        console.log("---error: ", result.data.Error)
+        console.log("---error: ", result.data.Error);
         yield put(setErrorToStore(result.data.Error));
       }
 

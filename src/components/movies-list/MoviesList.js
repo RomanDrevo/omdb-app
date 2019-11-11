@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import MovieDetails from '../movie-details/MovieDetails'
-import style from "./MoviesList.module.scss"
+import React, { Component } from 'react';
+import MovieDetails from '../movie-details/MovieDetails';
+import style from "./MoviesList.module.scss";
 import Spinner from "../Spinner/Spinner";
 
 
@@ -10,7 +10,7 @@ class MoviesList extends Component {
     const {movies, isLoading} = this.props;
 
     if(isLoading) {
-      return <div><Spinner/></div>
+      return <div><Spinner/></div>;
     }
 
     return (
@@ -23,8 +23,8 @@ class MoviesList extends Component {
           ))
         }
       </div>
-    )
+    );
   }
 }
 
-export default MoviesList
+export default MoviesList;

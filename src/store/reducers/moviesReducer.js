@@ -1,5 +1,5 @@
-import actionsTypes from '../actionsTypes'
-import createReducer from '../reducers/createReducer'
+import actionsTypes from '../actionsTypes';
+import createReducer from '../reducers/createReducer';
 
 const initialState = {
   searchText: "",
@@ -31,7 +31,7 @@ const headerReducer = createReducer(initialState, {
       ...state,
       error: payload,
       movies: null
-    }
+    };
   },
   [actionsTypes.SET_MOVIES_TO_STORE]: (state, {payload}) => {
 
@@ -39,7 +39,7 @@ const headerReducer = createReducer(initialState, {
       ...state,
       movies: [...payload],
       error: null
-    }
+    };
   },
 
   [actionsTypes.SET_SELECTED_MOVIE_TO_STORE]: (state, {payload}) => {
@@ -48,7 +48,7 @@ const headerReducer = createReducer(initialState, {
       ...state,
       selectedMovie: {...payload},
       error: null
-    }
+    };
   },
 
   [actionsTypes.SET_LOADING]: (state, {payload}) => {
@@ -56,7 +56,7 @@ const headerReducer = createReducer(initialState, {
     return {
       ...state,
       loading: payload
-    }
+    };
   },
 
   [actionsTypes.SHOW_MOVIE_DETAILS]: (state, {payload}) => {
@@ -64,7 +64,7 @@ const headerReducer = createReducer(initialState, {
     return {
       ...state,
       showMovieDetails: payload
-    }
+    };
   },
 
   [actionsTypes.SHOW_FULL_DESCRIPTION]: (state, {payload}) => {
@@ -72,7 +72,7 @@ const headerReducer = createReducer(initialState, {
     return {
       ...state,
       showFullDescription: payload
-    }
+    };
   },
 });
 
