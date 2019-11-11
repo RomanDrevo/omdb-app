@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import './MoviesList.css'
 import MovieDetails from '../movie-details/MovieDetails'
-
+import style from "./MoviesList.module.scss"
 
 
 class MoviesList extends Component {
@@ -11,32 +10,25 @@ class MoviesList extends Component {
 
     console.log(movies);
 
-    const movie = {
-      hour: 12,
-      category: "lalala",
-      rate: 666,
-      year: 1984,
-      description: "adsrljgdkjgkdjrhg"
-    }
+
 
 
     return (
-      <div>
-        <div className="flex justify-between items-baseline mt4 mb4">
+      <div className={`${style["movies-list-wrapper"]}`}>
+
           <h1> Movies List</h1>
           {/*<div*/}
           {/*  // onClick={moviesStore.openAddMovieForm}*/}
           {/*  className="action-button add-button"*/}
           {/*>+Add Movie*/}
           {/*</div>*/}
-        </div>
-        {/*{*/}
-        {/*  filteredMovies.map((movie) => (*/}
-        {/*    <MovieDetails key={movie.id} movie={movie} />*/}
-        {/*  ))*/}
-        {/*}*/}
 
-        <MovieDetails movie={movie} />
+        {
+          movies.map((movie) => (
+            <MovieDetails key={movie.id} movie={movie} />
+          ))
+        }
+
 
         {/*{*/}
         {/*  moviesStore.isEditMovieFormOpen ?*/}

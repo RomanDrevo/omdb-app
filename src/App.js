@@ -39,12 +39,13 @@ class App extends Component {
           <div className="main-page-content">
             {
               !movies &&
-              <SearchBar />
+              <SearchBar centered />
+
             }
 
             {
               error &&
-              <h2>{error }</h2>
+              <h2 className="error">{error }</h2>
             }
 
             {

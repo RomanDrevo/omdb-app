@@ -27,11 +27,11 @@ class SearchBar extends Component {
   }
 
   render() {
-    const { searchText } = this.props;
+    const { searchText, centered } = this.props;
 
     console.log("searchText: ", searchText);
     return (
-      <div className={`${style['search-bar-wrapper']}`}>
+      <div className={`${style['search-bar-wrapper']} ${centered && "centered"}`}>
         <Search
           placeholder="input search text"
           onChange={(e) => this.handleOnSearch(e.target.value)}

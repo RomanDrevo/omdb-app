@@ -1,0 +1,30 @@
+.movie-details :global{
+    color: #666666;
+  display: flex;
+  border: 1px solid violet;
+  .movie-description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  a{
+    text-decoration: none;
+    color: #000!important;
+  }
+
+  a:hover{
+    text-decoration: none!important;
+    color: #000000!important;
+    opacity: .6;
+  }
+
+  .movie-img{
+    background-image: url("../../assets/images/movie.jpg");
+    width: 100%;
+  }
+  .movie-img-wrapper{
+    max-width: 190px;
+  }
+}
+

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 class MovieImg extends Component{
     state={
-        imgUrl: this.props.movie.imageUrl
+        imgUrl: this.props.movie.Poster
     }
     render(){
         const {movie} = this.props
