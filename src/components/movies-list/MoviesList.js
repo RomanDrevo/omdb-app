@@ -7,6 +7,10 @@ import MovieDetails from '../movie-details/MovieDetails'
 class MoviesList extends Component {
   render() {
 
+    const {movies} = this.props;
+
+    console.log(movies);
+
     const movie = {
       hour: 12,
       category: "lalala",
@@ -20,11 +24,11 @@ class MoviesList extends Component {
       <div>
         <div className="flex justify-between items-baseline mt4 mb4">
           <h1> Movies List</h1>
-          <div
-            // onClick={moviesStore.openAddMovieForm}
-            className="action-button add-button"
-          >+Add Movie
-          </div>
+          {/*<div*/}
+          {/*  // onClick={moviesStore.openAddMovieForm}*/}
+          {/*  className="action-button add-button"*/}
+          {/*>+Add Movie*/}
+          {/*</div>*/}
         </div>
         {/*{*/}
         {/*  filteredMovies.map((movie) => (*/}

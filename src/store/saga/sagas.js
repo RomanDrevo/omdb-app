@@ -11,8 +11,6 @@ export function* fetchMovieSaga(action) {
 
       const result = yield call(fetchMovieApi, action.payload);
 
-      console.log("---result: ", result)
-
       if(result.data.Error){
         console.log("---error: ", result.data.Error)
         yield put(setErrorToStore(result.data.Error));
@@ -28,8 +26,6 @@ export function* fetchMovieSaga(action) {
     }else {
       yield put(setErrorToStore("Enter movie title."));
     }
-
-
 
   }
   catch (error) {

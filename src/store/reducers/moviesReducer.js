@@ -20,7 +20,7 @@ const headerReducer = createReducer(initialState, {
   [actionsTypes.CLEAR_SEARCH]: state => {
     return Object.assign({}, state, {
       searchText: "",
-      movie: null
+      movies: null
     });
   },
 

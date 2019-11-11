@@ -7,6 +7,7 @@ import MoviesList from "./components/movies-list/MoviesList";
 import {getError, getLoadingStatus, getMovies, getSearchText} from "./store/selectors";
 import SearchBar from "./components/search/SearchBar";
 import Spinner from "./components/Spinner";
+import MovieDetails from "./components/movie-details/MovieDetails";
 
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
 
   render() {
     const { isLoading, error, movies } = this.props;
-    console.log(movies);
+
 
     if(isLoading) {
       return <div><Spinner/></div>
@@ -41,7 +42,17 @@ class App extends Component {
               <SearchBar />
             }
 
-            <h2>{error && error }</h2>
+            {
+              error &&
+              <h2>{error }</h2>
+            }
+
+            {
+              movies &&
+              <MoviesList movies={movies} />
+            }
+
+
 
           </div>
         </PageLayout>
