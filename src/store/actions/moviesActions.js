@@ -15,16 +15,15 @@ export const clearSearch = () => {
   };
 };
 
-export const fetchMovie = data =>{
+export const fetchMovies = data =>{
   return{
-    type: actionsTypes.FETCH_MOVIE,
+    type: actionsTypes.FETCH_MOVIES,
     payload: data
   };
 };
 
 
 export const setMoviesToStore = data =>{
-  console.log(data);
   return{
     type: actionsTypes.SET_MOVIES_TO_STORE,
     payload: data
@@ -34,7 +33,6 @@ export const setMoviesToStore = data =>{
 
 
 export const setErrorToStore = data =>{
-  console.log(data);
   return{
     type: actionsTypes.SET_ERROR_TO_STORE,
     payload: data
@@ -56,9 +54,24 @@ export const showMovieDetails = data =>{
 };
 
 
-export const setSelectedMovie = data =>{
+export const setSelectedMovieToStore = data =>{
   return{
-    type: actionsTypes.SET_SELECTED_MOVIE,
+    type: actionsTypes.SET_SELECTED_MOVIE_TO_STORE,
     payload: data
   };
 };
+
+export const fetchMovieDetails = data =>{
+  return{
+    type: actionsTypes.FETCH_MOVIE_DETAILS,
+    payload: data
+  };
+};
+
+export const showFullDescription = data =>{
+  return{
+    type: actionsTypes.SHOW_FULL_DESCRIPTION,
+    payload: data
+  };
+};
+

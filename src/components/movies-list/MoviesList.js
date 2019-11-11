@@ -9,13 +9,9 @@ class MoviesList extends Component {
 
     const {movies, isLoading} = this.props;
 
-    console.log("isLoading: ", isLoading);
-
-
     if(isLoading) {
       return <div><Spinner/></div>
     }
-
 
     return (
       <div className={`${style["movies-list-wrapper"]}`}>

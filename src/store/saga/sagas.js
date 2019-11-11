@@ -1,15 +1,15 @@
 import { call, put } from "redux-saga/effects";
-import {setErrorToStore, setLoading, setMoviesToStore} from "../actions/moviesActions";
-import {fetchMovieApi} from "../../api";
+import {setErrorToStore, setLoading, setMoviesToStore, setSelectedMovieToStore} from "../actions/moviesActions";
+import {fetchMovieDetailsApi, fetchMoviesListApi} from "../../api";
 
 
-export function* fetchMovieSaga(action) {
+export function* fetchMoviesSaga(action) {
   try {
 
     if(action.payload){
       yield put(setLoading(true));
 
-      const result = yield call(fetchMovieApi, action.payload);
+      const result = yield call(fetchMoviesListApi, action.payload);
 
       if(result.data.Error){
         console.log("---error: ", result.data.Error)
@@ -34,3 +34,36 @@ export function* fetchMovieSaga(action) {
     yield put(setErrorToStore(error));
   }
 }
+
+export function* fetchMovieDetailsSaga(action) {
+  try {
+
+    // if(action.payload){
+    //
+    // }else {
+    //   yield put(setErrorToStore("Enter movie title."));
+    // }
+
+    yield put(setLoading(true));
+
+    const result = yield call(fetchMovieDetailsApi, action.payload);
+
+
+    if(result.data){
+      yield put(setSelectedMovieToStore(result.data));
+    }
+
+
+
+
+    yield put(setLoading(false));
+
+  }
+  catch (error) {
+    console.log("err: ", error)
+    yield put(setLoading(false));
+    yield put(setErrorToStore(error));
+  }
+}
+
+

@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 import {getSearchText} from "../../store/selectors";
-import {clearSearch, fetchMovie, updateSearch} from "../../store/actions/moviesActions";
+import {clearSearch, fetchMovies, updateSearch} from "../../store/actions/moviesActions";
 import debounce from "lodash.debounce";
 import {Input} from "antd";
 import style from "./Search.module.scss"
@@ -11,11 +11,11 @@ const { Search } = Input;
 class SearchBar extends Component {
 
   handleOnSearch = debounce(text => {
-    const {updateSearch, fetchMovie} = this.props;
+    const {updateSearch, fetchMovies} = this.props;
 
     updateSearch(text);
 
-    fetchMovie(text);
+    fetchMovies(text);
 
   }, 100)
 
@@ -29,7 +29,6 @@ class SearchBar extends Component {
   render() {
     const { searchText, centered } = this.props;
 
-    console.log("searchText: ", searchText);
     return (
       <div className={`${style['search-bar-wrapper']} ${centered && "centered"}`}>
         <Search
@@ -55,7 +54,7 @@ function mapDispatchToProps(dispatch) {
   return {
     updateSearch: data => dispatch(updateSearch(data)),
     clearSearch: () => dispatch(clearSearch()),
-    fetchMovie: data => dispatch(fetchMovie(data)),
+    fetchMovies: data => dispatch(fetchMovies(data)),
   };
 }
 

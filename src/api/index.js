@@ -1,13 +1,23 @@
 import axios_based from "./axios-base";
 
-export function fetchMovieApi(data) {
+export function fetchMoviesListApi(data) {
 
   const params = {
     s: data,
-    t:data
   };
 
-  console.log(data);
+  return axios_based.get(
+    ``, {params}
+  );
+}
+
+export function fetchMovieDetailsApi(data) {
+
+  const params = {
+    plot: "full",
+    t:data,
+  };
+
   return axios_based.get(
     ``, {params}
   );

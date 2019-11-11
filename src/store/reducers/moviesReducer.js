@@ -7,7 +7,8 @@ const initialState = {
   loading: false,
   error: null,
   showMovieDetails: false,
-  selectedMovie: null
+  selectedMovie: null,
+  showFullDescription: false
 };
 
 const headerReducer = createReducer(initialState, {
@@ -41,6 +42,15 @@ const headerReducer = createReducer(initialState, {
     }
   },
 
+  [actionsTypes.SET_SELECTED_MOVIE_TO_STORE]: (state, {payload}) => {
+
+    return {
+      ...state,
+      selectedMovie: {...payload},
+      error: null
+    }
+  },
+
   [actionsTypes.SET_LOADING]: (state, {payload}) => {
 
     return {
@@ -57,11 +67,11 @@ const headerReducer = createReducer(initialState, {
     }
   },
 
-  [actionsTypes.SET_SELECTED_MOVIE]: (state, {payload}) => {
+  [actionsTypes.SHOW_FULL_DESCRIPTION]: (state, {payload}) => {
 
     return {
       ...state,
-      selectedMovie: payload
+      showFullDescription: payload
     }
   },
 });
