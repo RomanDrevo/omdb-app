@@ -2,12 +2,13 @@ import React, {Component, Fragment} from "react";
 import style from "./App.module.scss";
 import PageLayout from "./components/pageLayout";
 import {connect} from "react-redux";
-import {updateSearch} from "./store/actions/moviesActions";
+import {showMovieDetails, updateSearch} from "./store/actions/moviesActions";
 import MoviesList from "./components/movies-list/MoviesList";
 import {getError, getLoadingStatus, getMovies, getSearchText} from "./store/selectors";
 import SearchBar from "./components/search/SearchBar";
 import Spinner from "./components/Spinner";
 import MovieDetails from "./components/movie-details/MovieDetails";
+import {Modal} from "antd";
 
 
 class App extends Component {
@@ -17,9 +18,7 @@ class App extends Component {
     const { isLoading, error, movies } = this.props;
 
 
-    if(isLoading) {
-      return <div><Spinner/></div>
-    }
+
 
     return (
       <div className={style["App"]}>
@@ -50,12 +49,21 @@ class App extends Component {
 
             {
               movies &&
-              <MoviesList movies={movies} />
+              <MoviesList isLoading={isLoading} movies={movies} />
             }
 
-
-
           </div>
+
+          {/*<Modal*/}
+          {/*  title="Basic Modal"*/}
+          {/*  visible={true}*/}
+          {/*  // onOk={this.handleOk}*/}
+          {/*  // onCancel={this.handleCancel}*/}
+          {/*>*/}
+          {/*  <p>Some contents...</p>*/}
+          {/*  <p>Some contents...</p>*/}
+          {/*  <p>Some contents...</p>*/}
+          {/*</Modal>*/}
         </PageLayout>
       </div>
     );
@@ -73,8 +81,7 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    // fetchItems: () => dispatch(fetchItems()),
-    // updateSearch: data => dispatch(updateSearch(data))
+    showMovieDetails: data => dispatch(showMovieDetails(data))
   };
 }
 

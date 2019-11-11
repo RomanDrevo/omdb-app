@@ -8,6 +8,7 @@ import createSagaMiddleware from 'redux-saga';
 import {applyMiddleware, compose, createStore} from "redux";
 import reducers from "./store/reducers";
 import {watchSaga} from "./store/saga";
+import "antd/dist/antd.css";
 
 const
   composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose,

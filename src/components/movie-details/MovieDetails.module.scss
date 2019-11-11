@@ -1,12 +1,16 @@
 .movie-details :global{
-    color: #666666;
+  color: #666666;
   display: flex;
   border: 1px solid violet;
+  margin-bottom: 10px;
+  cursor: pointer;
+
   .movie-description{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    padding: 10px;
   }
   a{
     text-decoration: none;
@@ -24,7 +28,7 @@
     width: 100%;
   }
   .movie-img-wrapper{
-    max-width: 190px;
+    max-width: 70px;
   }
 }
 

@@ -2,6 +2,7 @@
   border: 1px dashed blue;
   display: flex;
   position: relative;
+  min-height: 34px;
 
   .clear-search{
     display: flex;
@@ -11,13 +12,14 @@
     cursor: pointer;
     background: gainsboro;
     color: #000;
-    opacity: .9;
     padding: 6px 12px;
     position: absolute;
     right: 0;
     -webkit-box-shadow: -1px 1px 9px -5px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px 1px 9px -5px rgba(0,0,0,0.75);
     box-shadow: -1px 1px 9px -5px rgba(0,0,0,0.75);
+    z-index: 999;
+    opacity: .7;
   }
 
   .clear-search:hover{

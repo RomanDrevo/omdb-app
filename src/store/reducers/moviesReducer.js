@@ -5,7 +5,8 @@ const initialState = {
   searchText: "",
   movies: null,
   loading: false,
-  error: null
+  error: null,
+  showMovieDetails: false
 };
 
 const headerReducer = createReducer(initialState, {
@@ -36,6 +37,14 @@ const headerReducer = createReducer(initialState, {
       ...state,
       movies: [...payload],
       error: null
+    }
+  },
+
+  [actionsTypes.SET_LOADING]: (state, {payload}) => {
+
+    return {
+      ...state,
+      loading: payload
     }
   },
 });

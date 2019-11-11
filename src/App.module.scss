@@ -61,11 +61,9 @@
     }
     .ant-input-suffix i {
       color: #96a2aa;
-      display: flex;
-      right: 4px;
-      top: 0;
-      width: 21px;
       position: absolute;
+      top: -4px;
+      right: -4px;
       cursor: pointer;
       &:focus {
         outline: none;
@@ -98,6 +96,6 @@
 
   .error{
     position: fixed;
-    top: 52vh;
+    top: 54vh;
   }
 }

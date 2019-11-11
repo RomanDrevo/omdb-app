@@ -47,3 +47,10 @@ export const setLoading = data =>{
     payload: data
   };
 };
+
+export const showMovieDetails = data =>{
+  return{
+    type: actionsTypes.SHOW_MOVIE_DETAILS,
+    payload: data
+  };
+};
