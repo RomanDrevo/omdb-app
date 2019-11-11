@@ -3,7 +3,8 @@ import axios_based from "./axios-base";
 export function fetchMovieApi(data) {
 
   const params = {
-    t: data,
+    s: data,
+    t:data
   };
 
   console.log(data);

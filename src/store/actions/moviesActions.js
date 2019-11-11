@@ -1,39 +1,6 @@
 import actionsTypes from "../actionsTypes";
 
-export const fetchItems = data =>{
-  return{
-    type: actionsTypes.FETCH_ITEMS,
-    payload: data
-  };
-};
 
-export const setItems = data =>{
-  return{
-    type: actionsTypes.SET_ITEMS,
-    payload: data
-  };
-};
-
-export const addItem = data =>{
-  return{
-    type: actionsTypes.ADD_ITEM,
-    payload: data
-  };
-};
-
-export const editItem = data =>{
-  return{
-    type: actionsTypes.EDIT_ITEM,
-    payload: data
-  };
-};
-
-export const deleteItem = data =>{
-  return{
-    type: actionsTypes.DELETE_ITEM,
-    payload: data
-  };
-};
 
 export const updateSearch = data => {
   return {
@@ -56,12 +23,27 @@ export const fetchMovie = data =>{
 };
 
 
-export const setMovieToStore = data =>{
+export const setMoviesToStore = data =>{
   console.log(data);
   return{
-    type: actionsTypes.SET_MOVIE_TO_STORE,
+    type: actionsTypes.SET_MOVIES_TO_STORE,
     payload: data
   };
 };
 
 
+
+export const setErrorToStore = data =>{
+  console.log(data);
+  return{
+    type: actionsTypes.SET_ERROR_TO_STORE,
+    payload: data
+  };
+};
+
+export const setLoading = data =>{
+  return{
+    type: actionsTypes.SET_LOADING,
+    payload: data
+  };
+};

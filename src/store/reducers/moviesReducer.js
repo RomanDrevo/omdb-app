@@ -4,8 +4,9 @@ import createReducer from '../reducers/createReducer'
 const initialState = {
   data: [],
   searchText: "",
-  movie: null,
-  loading: false
+  movies: null,
+  loading: false,
+  error: null
 };
 
 const headerReducer = createReducer(initialState, {
@@ -23,14 +24,16 @@ const headerReducer = createReducer(initialState, {
     });
   },
 
-  [actionsTypes.SET_ITEMS]: (state, {payload}) => {
+  [actionsTypes.SET_ERROR_TO_STORE]: (state, {payload}) => {
     return {
       ...state,
-      data: payload
+      error: payload,
+      movies: null
     }
   },
-  [actionsTypes.SET_MOVIE_TO_STORE]: (state, {payload}) => {
-    const newData = Object.assign({}, state)
+  [actionsTypes.SET_MOVIES_TO_STORE]: (state, {payload}) => {
+
+    console.log("--payload: ", payload)
     //
     // let movie = state?.movie;
     //
@@ -38,7 +41,8 @@ const headerReducer = createReducer(initialState, {
 
     return {
       ...state,
-      movie: {...payload}
+      movies: [...payload],
+      error: null
     }
   },
   [actionsTypes.EDIT_ITEM]: (state, {payload}) => {

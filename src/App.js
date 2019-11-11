@@ -2,23 +2,24 @@ import React, {Component, Fragment} from "react";
 import style from "./App.module.scss";
 import PageLayout from "./components/pageLayout";
 import {connect} from "react-redux";
-import {fetchItems, updateSearch} from "./store/actions/moviesActions";
+import {updateSearch} from "./store/actions/moviesActions";
 import MoviesList from "./components/movies-list/MoviesList";
-import {getSearchText} from "./store/selectors";
-import debounce from 'lodash.debounce'
+import {getError, getLoadingStatus, getMovies, getSearchText} from "./store/selectors";
 import SearchBar from "./components/search/SearchBar";
+import Spinner from "./components/Spinner";
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    props.fetchItems();
 
-  }
 
   render() {
-    const { searchText } = this.props;
-    // console.log(data);
+    const { isLoading, error, movies } = this.props;
+    console.log(movies);
+
+    if(isLoading) {
+      return <div><Spinner/></div>
+    }
+
     return (
       <div className={style["App"]}>
         <PageLayout>
@@ -27,7 +28,7 @@ class App extends Component {
 
               <div className="search-item-wrapper">
                 {
-                  searchText.length > 0 &&
+                  movies && movies.length > 0 &&
                   <SearchBar />
 
                 }
@@ -36,9 +37,11 @@ class App extends Component {
           </header>
           <div className="main-page-content">
             {
-              searchText.length === 0 &&
+              !movies &&
               <SearchBar />
             }
+
+            <h2>{error && error }</h2>
 
           </div>
         </PageLayout>
@@ -49,14 +52,16 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    data: state.movies.data,
-    searchText: getSearchText(state)
+    searchText: getSearchText(state),
+    error: getError(state),
+    movies: getMovies(state),
+    isLoading: getLoadingStatus(state),
   };
 };
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchItems: () => dispatch(fetchItems()),
+    // fetchItems: () => dispatch(fetchItems()),
     // updateSearch: data => dispatch(updateSearch(data))
   };
 }
