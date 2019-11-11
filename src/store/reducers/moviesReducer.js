@@ -6,7 +6,8 @@ const initialState = {
   movies: null,
   loading: false,
   error: null,
-  showMovieDetails: false
+  showMovieDetails: false,
+  selectedMovie: null
 };
 
 const headerReducer = createReducer(initialState, {
@@ -45,6 +46,22 @@ const headerReducer = createReducer(initialState, {
     return {
       ...state,
       loading: payload
+    }
+  },
+
+  [actionsTypes.SHOW_MOVIE_DETAILS]: (state, {payload}) => {
+
+    return {
+      ...state,
+      showMovieDetails: payload
+    }
+  },
+
+  [actionsTypes.SET_SELECTED_MOVIE]: (state, {payload}) => {
+
+    return {
+      ...state,
+      selectedMovie: payload
     }
   },
 });

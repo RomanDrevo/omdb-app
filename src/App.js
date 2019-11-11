@@ -4,7 +4,7 @@ import PageLayout from "./components/pageLayout";
 import {connect} from "react-redux";
 import {showMovieDetails, updateSearch} from "./store/actions/moviesActions";
 import MoviesList from "./components/movies-list/MoviesList";
-import {getError, getLoadingStatus, getMovies, getSearchText} from "./store/selectors";
+import {getError, getLoadingStatus, getMovies, getSearchText, getShowMovieDetailsStatus} from "./store/selectors";
 import SearchBar from "./components/search/SearchBar";
 import Spinner from "./components/Spinner";
 import MovieDetails from "./components/movie-details/MovieDetails";
@@ -13,9 +13,14 @@ import {Modal} from "antd";
 
 class App extends Component {
 
+  handleOk = () => {
+    const {showMovieDetails} = this.props
+
+    showMovieDetails(false)
+  }
 
   render() {
-    const { isLoading, error, movies } = this.props;
+    const { isLoading, error, movies, showMovieDetailsStatus } = this.props;
 
 
 
@@ -54,16 +59,17 @@ class App extends Component {
 
           </div>
 
-          {/*<Modal*/}
-          {/*  title="Basic Modal"*/}
-          {/*  visible={true}*/}
-          {/*  // onOk={this.handleOk}*/}
-          {/*  // onCancel={this.handleCancel}*/}
-          {/*>*/}
-          {/*  <p>Some contents...</p>*/}
-          {/*  <p>Some contents...</p>*/}
-          {/*  <p>Some contents...</p>*/}
-          {/*</Modal>*/}
+          <Modal
+            title="Basic Modal"
+            visible={showMovieDetailsStatus}
+            // onOk={this.handleOk}
+            footer={false}
+            onCancel={this.handleOk}
+          >
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+          </Modal>
         </PageLayout>
       </div>
     );
@@ -76,6 +82,8 @@ const mapStateToProps = state => {
     error: getError(state),
     movies: getMovies(state),
     isLoading: getLoadingStatus(state),
+    showMovieDetailsStatus: getShowMovieDetailsStatus(state),
+    // selectedMovie: getSelectedMovie(state),
   };
 };
 

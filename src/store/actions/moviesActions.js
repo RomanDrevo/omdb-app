@@ -54,3 +54,11 @@ export const showMovieDetails = data =>{
     payload: data
   };
 };
+
+
+export const setSelectedMovie = data =>{
+  return{
+    type: actionsTypes.SET_SELECTED_MOVIE,
+    payload: data
+  };
+};

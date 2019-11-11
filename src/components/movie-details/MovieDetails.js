@@ -2,16 +2,18 @@ import React, {Component} from 'react'
 import style from './MovieDetails.module.scss'
 import MovieImg from "./MovieImg";
 import {getError, getLoadingStatus, getMovies, getSearchText} from "../../store/selectors";
-import {showMovieDetails} from "../../store/actions/moviesActions";
+import {setSelectedMovie, showMovieDetails} from "../../store/actions/moviesActions";
 import {connect} from "react-redux";
 
 
 class MovieDetails extends Component {
 
-  handleShowDetails = () => {
-    const {showMovieDetails} = this.props
+  handleOnClick = movieId => {
+    const {showMovieDetails, setSelectedMovie} = this.props;
 
-    showMovieDetails(true)
+    showMovieDetails(true);
+
+    setSelectedMovie(movieId);
   }
 
     render() {
@@ -19,7 +21,7 @@ class MovieDetails extends Component {
 
 
       return (
-            <div onClick={this.handleShowDetails} className={`${style["movie-details"]}`}>
+            <div onClick={() => this.handleOnClick(movie.imdbID)} className={`${style["movie-details"]}`}>
               <div className="movie-img-wrapper">
                 <MovieImg movie={movie}/>
               </div>
@@ -51,7 +53,8 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    showMovieDetails: data => dispatch(showMovieDetails(data))
+    showMovieDetails: data => dispatch(showMovieDetails(data)),
+    setSelectedMovie: data => dispatch(setSelectedMovie(data)),
   };
 }
 
