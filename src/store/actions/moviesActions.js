@@ -49,12 +49,19 @@ export const clearSearch = () => {
 };
 
 export const fetchMovie = data =>{
-  console.log(data);
   return{
     type: actionsTypes.FETCH_MOVIE,
     payload: data
   };
 };
 
+
+export const setMovieToStore = data =>{
+  console.log(data);
+  return{
+    type: actionsTypes.SET_MOVIE_TO_STORE,
+    payload: data
+  };
+};
 
 

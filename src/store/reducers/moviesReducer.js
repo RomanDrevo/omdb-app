@@ -18,7 +18,8 @@ const headerReducer = createReducer(initialState, {
 
   [actionsTypes.CLEAR_SEARCH]: state => {
     return Object.assign({}, state, {
-      searchText: ""
+      searchText: "",
+      movie: null
     });
   },
 
@@ -28,11 +29,16 @@ const headerReducer = createReducer(initialState, {
       data: payload
     }
   },
-  [actionsTypes.ADD_ITEM]: (state, {payload}) => {
-    const newData = [...state.data].push(payload);
+  [actionsTypes.SET_MOVIE_TO_STORE]: (state, {payload}) => {
+    const newData = Object.assign({}, state)
+    //
+    // let movie = state?.movie;
+    //
+    // newData.movie = payload
+
     return {
       ...state,
-      data: newData
+      movie: {...payload}
     }
   },
   [actionsTypes.EDIT_ITEM]: (state, {payload}) => {

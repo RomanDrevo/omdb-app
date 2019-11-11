@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import types from "../actionsTypes";
-import { setItems } from "../actions/moviesActions";
+import {setItems, setMovieToStore} from "../actions/moviesActions";
 import {fetchMovieApi} from "../../api";
 
 let data = [
@@ -23,7 +23,7 @@ export function* fetchMovieSaga(action) {
 
     console.log("---result: ", result)
 
-    // yield put(setItems(data));
+    yield put(setMovieToStore(result.data));
   } catch (error) {
     yield put({ type: types.ACTION_FAILED, payload: error.message });
   }
