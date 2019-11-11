@@ -20,8 +20,6 @@ export function* fetchMoviesSaga(action) {
         yield put(setMoviesToStore(result.data.Search));
       }
 
-
-
       yield put(setLoading(false));
     }else {
       yield put(setErrorToStore("Enter movie title."));
@@ -29,7 +27,7 @@ export function* fetchMoviesSaga(action) {
 
   }
   catch (error) {
-    console.log("err: ", error)
+    console.log("err: ", error);
     yield put(setLoading(false));
     yield put(setErrorToStore(error));
   }
@@ -37,30 +35,18 @@ export function* fetchMoviesSaga(action) {
 
 export function* fetchMovieDetailsSaga(action) {
   try {
-
-    // if(action.payload){
-    //
-    // }else {
-    //   yield put(setErrorToStore("Enter movie title."));
-    // }
-
     yield put(setLoading(true));
 
     const result = yield call(fetchMovieDetailsApi, action.payload);
-
 
     if(result.data){
       yield put(setSelectedMovieToStore(result.data));
     }
 
-
-
-
     yield put(setLoading(false));
 
   }
   catch (error) {
-    console.log("err: ", error)
     yield put(setLoading(false));
     yield put(setErrorToStore(error));
   }

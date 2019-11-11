@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {getSearchText} from "../../store/selectors";
 import {clearSearch, fetchMovies, updateSearch} from "../../store/actions/moviesActions";
@@ -17,14 +17,14 @@ class SearchBar extends Component {
 
     fetchMovies(text);
 
-  }, 100)
+  }, 100);
 
   handleClearSearch = () => {
     const {clearSearch} = this.props;
 
     clearSearch();
 
-  }
+  };
 
   render() {
     const { searchText, centered } = this.props;

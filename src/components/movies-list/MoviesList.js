@@ -16,17 +16,12 @@ class MoviesList extends Component {
     return (
       <div className={`${style["movies-list-wrapper"]}`}>
 
-          <h1> Movies List</h1>
-
-
+        <h1> Movies List</h1>
         {
           movies.map((movie) => (
             <MovieDetails key={movie.imdbID} movie={movie} />
           ))
         }
-
-
-
       </div>
     )
   }
