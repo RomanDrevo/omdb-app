@@ -48,6 +48,13 @@ export const clearSearch = () => {
   };
 };
 
+export const fetchMovie = data =>{
+  console.log(data);
+  return{
+    type: actionsTypes.FETCH_MOVIE,
+    payload: data
+  };
+};
 
 
 

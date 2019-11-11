@@ -16,14 +16,6 @@ class App extends Component {
 
   }
 
-
-
-
-
-
-
-
-
   render() {
     const { searchText } = this.props;
     // console.log(data);
@@ -32,13 +24,7 @@ class App extends Component {
         <PageLayout>
           <header className="App-header">
             <div className="add-new-item-wrapper">
-              {/*<Button*/}
-              {/*  type="primary"*/}
-              {/*  onClick={this.handleDoSomething}*/}
-              {/*  size="large"*/}
-              {/*>*/}
-              {/*  Do something*/}
-              {/*</Button>*/}
+
               <div className="search-item-wrapper">
                 {
                   searchText.length > 0 &&

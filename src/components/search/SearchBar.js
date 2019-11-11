@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 import {getSearchText} from "../../store/selectors";
-import {clearSearch, updateSearch} from "../../store/actions/moviesActions";
+import {clearSearch, fetchMovie, updateSearch} from "../../store/actions/moviesActions";
 import debounce from "lodash.debounce";
 import {Input} from "antd";
 import style from "./Search.module.scss"
@@ -11,10 +11,12 @@ const { Search } = Input;
 class SearchBar extends Component {
 
   handleOnSearch = debounce(text => {
-    const {updateSearch} = this.props;
+    const {updateSearch, fetchMovie} = this.props;
 
-    updateSearch(text)
-    console.log("here")
+    updateSearch(text);
+
+    fetchMovie(text);
+
   }, 100)
 
   handleClearSearch = () => {
@@ -53,6 +55,7 @@ function mapDispatchToProps(dispatch) {
   return {
     updateSearch: data => dispatch(updateSearch(data)),
     clearSearch: () => dispatch(clearSearch()),
+    fetchMovie: data => dispatch(fetchMovie(data)),
   };
 }
 

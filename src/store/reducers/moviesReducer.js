@@ -3,7 +3,9 @@ import createReducer from '../reducers/createReducer'
 
 const initialState = {
   data: [],
-  searchText: ""
+  searchText: "",
+  movie: null,
+  loading: false
 };
 
 const headerReducer = createReducer(initialState, {
